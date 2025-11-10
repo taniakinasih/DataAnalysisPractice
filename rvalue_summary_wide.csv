@@ -1,0 +1,6 @@
+Variable,Winter,Spring,Summer,Autumn,Strongest Correlation
+Dew Point,0.664,0.414,0.491,0.302,Winter
+Temperature,0.036,-0.036,-0.039,-0.058,Autumn
+Pressure,-0.317,-0.159,-0.024,-0.164,Winter
+Wind Speed,-0.335,-0.278,-0.006,-0.256,Winter
+Rainfall Duration,0.024,0.013,-0.089,-0.083,Summer
