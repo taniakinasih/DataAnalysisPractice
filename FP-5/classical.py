@@ -305,7 +305,7 @@ def _run_contextual_regression(df: pd.DataFrame, custom_models: dict, title_suff
     return summary, r_squared_n_map
 
 # --------------------------------------------------------
-# 5. PUBLIC API FOR CONTEXTUAL REGRESSION 
+# PUBLIC API FOR CONTEXTUAL REGRESSION 
 # --------------------------------------------------------
 
 def run_contextual_regression(df: pd.DataFrame, set_name: str, high_pollution: bool = False, dep_var="concentration"):
@@ -325,9 +325,9 @@ contextual_multiple_regression_5 = lambda df: run_contextual_regression(df, "E",
 contextual_multiple_regression_high_pollution_5 = lambda df: run_contextual_regression(df, "E", high_pollution=True)
 
 
-# -----------------------------
-# 6. PLOTTING FUNCTIONS (Set E)
-# -----------------------------
+# ----------------------------------------
+# 5. PLOTTING FUNCTIONS (Set E) - BETTER R
+# ----------------------------------------
 
 def plot_predicted_vs_actual_set_5(df: pd.DataFrame, dep_var="concentration", high_pollution_only: bool = False):
     """Plots Predicted vs. Actual PM2.5 based on Multiple Regression Model Set E, per season."""
@@ -427,12 +427,10 @@ def plot_correlation_heatmap(df: pd.DataFrame, dep_var="concentration"):
         print("Error: DataFrame must contain 'concentration' and at least one weather variable.")
         return
 
-    # 2. Clean Data (Removing outliers based on concentration)
-    # Using the 'remove_outliers' function you defined earlier
+    # 2. Clean Data
     df_clean = remove_outliers(df, col=dep_var)
     
     # 3. Calculate the Correlation Matrix
-    # Calculate correlation only for the valid variables
     correlation_matrix = df_clean[valid_vars].corr(numeric_only=True)
     
     # 4. Plot the Heatmap
@@ -454,11 +452,3 @@ def plot_correlation_heatmap(df: pd.DataFrame, dep_var="concentration"):
     plt.yticks(rotation=0)
     plt.tight_layout()
     plt.show()
-
-# --- HOW TO USE THIS FUNCTION ---
-
-# Make sure your 'df' DataFrame is loaded and the 'remove_outliers' 
-# function from your full code block has been run previously.
-
-# Example Call:
-# plot_correlation_heatmap(df)
